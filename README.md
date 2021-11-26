@@ -18,6 +18,6 @@ $ pytest
 ## Publish
 
 ```bash
-$ python setup.py sdist
+$ python -m build
 $ twine upload dist/*
 ```
