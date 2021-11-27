@@ -64,6 +64,6 @@ class Namespace:
         return {k:getattr(self, k) for k in attributes if hasattr(self, k) }
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # pragma: no cover
     import doctest
     doctest.testmod()

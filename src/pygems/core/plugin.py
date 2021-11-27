@@ -199,6 +199,6 @@ class PluginCollection:
             plugin(*args, **kwargs)
         return self
 
-if __name__ == "__main__":
+if __name__ == "__main__": # pragma: no cover
     import doctest
     doctest.testmod()

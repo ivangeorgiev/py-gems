@@ -28,6 +28,13 @@ class StringMessageCallback:
         self.message_func = message_func or print
 
     def __call__(self, timer, *args):
+        """
+        >>> from functools import partial
+        >>> time_func = partial([1, 10, 30].pop, 0)
+        >>> timer = Timer(name='Swiss', time_func=time_func, stop_func=StringMessageCallback())
+        >>> timer.stop('load')
+        Swiss: 9s load
+        """
         message = self.message_template.format(timer=timer, args=args, 
                 args_str=" ".join(args))
         self.message_func(message)
@@ -219,6 +226,6 @@ class Timer:
             self.stop_func(self, *args)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # pragma: no cover
     import doctest
     doctest.testmod()
