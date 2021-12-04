@@ -1,5 +1,6 @@
 # py-gems
 
+[![Documentation Status](https://readthedocs.org/projects/py-gems/badge/?version=latest)](https://py-gems.readthedocs.io/en/latest/?badge=latest)
 
 # Development
 
