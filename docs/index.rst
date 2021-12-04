@@ -10,7 +10,7 @@ Welcome to Py-Gems's documentation!
    :caption: Programmer Reference
    :maxdepth: 1
 
-   api
+   core-api
 
 Indices and tables
 ==================

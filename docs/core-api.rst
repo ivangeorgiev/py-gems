@@ -1,5 +1,5 @@
-Py-Gems API
-===========
+Py-Gems Core API
+================
 
 
 .. testsetup:: *
