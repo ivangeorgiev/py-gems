@@ -1,6 +1,7 @@
 build
 pytest
 pytest-cov
+sphinx-prompt
 sphinx-rtd-theme
 twine
 -e .

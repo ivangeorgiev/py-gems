@@ -1,5 +1,8 @@
 class Namespace:
+    """Namespace class"""
+
     __custom_attributes: set
+    """Names of namespace attributes"""
 
     def __init__(self, *args, **kwargs):
         """Create Namespace object.
@@ -7,6 +10,7 @@ class Namespace:
         Accepts positional and keyword arguments. See update().
 
         Create Namespace object with name attribute set:
+
         >>> ns = Namespace({'name':'John'})
         >>> ns.name
         'John'
@@ -18,18 +22,21 @@ class Namespace:
         """Update the object attributes
         
         Positional arguments are treated as dictionary:
+
         >>> ns = Namespace()
         >>> ns.update({'name':'John'})
         >>> ns.name
         'John'
 
         Keyword arguments are treated as dictionary elements:
+
         >>> ns = Namespace()
         >>> ns.update(name='Jane')
         >>> ns.name
         'Jane'
         
         Positional and keyword arguments can be combined:
+
         >>> address = {'city':'London'}
         >>> name = {'first': 'Sponge'}
         >>> ns = Namespace()
@@ -47,12 +54,14 @@ class Namespace:
         """Get dictionary representation of the data.
         
         Only custom attributes are exported:
+
         >>> ns = Namespace(name='Joan')
         >>> ns.asdict()
         {'name': 'Joan'}
 
         Set the `sorted_keys` parameter to True to get
         dictionary withsorted keys. Useful for docstring tests.
+        
         >>> ns = Namespace(name='Joan', city='Arc')
         >>> ns.asdict(sorted_keys=True)
         {'city': 'Arc', 'name': 'Joan'}

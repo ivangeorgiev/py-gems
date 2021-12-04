@@ -7,10 +7,10 @@ Welcome to Py-Gems's documentation!
 ===================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :caption: Programmer Reference
+   :maxdepth: 1
 
-
+   api
 
 Indices and tables
 ==================

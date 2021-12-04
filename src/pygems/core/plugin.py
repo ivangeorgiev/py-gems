@@ -1,3 +1,5 @@
+"""Tools for implementing plugin architecture in Python applicaitons."""
+
 import typing
 
 class BaseEventListener:
@@ -111,7 +113,8 @@ class PluginCollection:
         >>> plugins.insert(dir)._plugins
         [<built-in function dir>, <built-in function print>]
 
-        Plugins are validated
+        Plugins are validated:
+
         >>> plugins.insert(3)
         Traceback (most recent call last):
            ...
@@ -126,18 +129,21 @@ class PluginCollection:
         """
 
         Appending a plugin stores it in collection:
+
         >>> plugins = PluginCollection()
         >>> _ = plugins.append(print)
         >>> plugins._plugins
         [<built-in function print>]
 
         Multiple plugins can be appended at the same time. Order is preserved:
+
         >>> plugins = PluginCollection()
         >>> _ = plugins.append(print, dir)
         >>> plugins._plugins
         [<built-in function print>, <built-in function dir>]
         
         Appending same plugin more than once is ignored:
+
         >>> plugins = PluginCollection()
         >>> _ = plugins.append(print, dir)
         >>> _ = plugins.append(print)
@@ -145,6 +151,7 @@ class PluginCollection:
         [<built-in function print>, <built-in function dir>]
 
         Tryhing to append non-callable plugin raises error:
+
         >>> plugins = PluginCollection()
         >>> plugins.append(3)
         Traceback (most recent call last):
@@ -154,6 +161,7 @@ class PluginCollection:
         You can restrict type of plugins so that adding callable which is not instance
         of the given class raises assertion error. Note that instances still should be
         callable which in Python means that class implements the __call__ method:
+
         >>> class BasePlugin:
         ...    def __call__(self, *args, **kwargs):
         ...       print(*args, **kwargs)
@@ -190,6 +198,7 @@ class PluginCollection:
         """
         
         Runs all plugins from collection passing positional and keyword arguments:
+
         >>> plugins = PluginCollection()
         >>> _ = plugins.append(print)
         >>> _ = plugins.notify('click', 3, sep='|')
