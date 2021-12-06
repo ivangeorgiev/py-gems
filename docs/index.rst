@@ -7,6 +7,13 @@ Welcome to Py-Gems's documentation!
 ===================================
 
 .. toctree::
+   :caption: Practices
+   :maxdepth: 3
+
+   knowing
+   testing
+
+.. toctree::
    :caption: Programmer Reference
    :maxdepth: 1
 
