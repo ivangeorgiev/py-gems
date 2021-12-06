@@ -158,8 +158,8 @@ Supports also positional arguments:
     AuthorizationError: User is not authorized
 
 
-Decorators with optional arguments
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Decorator with optional arguments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -234,6 +234,13 @@ You can think of decorators as being applied to what follows:
     @is_authenticated
     def get_food(username, food):
         return food
+
+``@not_user("admin")`` is being applied to the result from the ``@not_user("abcd")`` decorator which 
+in turn is applied to the result from the ``@is_authenticated`` decorator which is applied to the 
+``get_food()`` function.
+
+Thus you can also remember that decorators are applied from bottom to top. First is applied the 
+decorator at the bottom, next the decorator before it etc. until the top decorator.
 
 Further Reading
 ~~~~~~~~~~~~~~~
