@@ -7,3 +7,4 @@ Knowing
 
    knowing/functions-and-methods
    knowing/packaging
+   knowing/django

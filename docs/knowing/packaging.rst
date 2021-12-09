@@ -5,6 +5,8 @@ Packaging
 Get Metadata for Installed Package
 ----------------------------------
 
+:mod:`os`
+
 Starting Python 3.8 the :py:mod:`importlib.metadata` module could be used:
 
 .. code-block:: python

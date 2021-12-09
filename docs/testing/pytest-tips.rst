@@ -32,8 +32,8 @@ You can mark tests, using ``pytest`` markers:
 Define markers in ``pytest.ini``:
 
 .. code-block:: ini
+   :caption: pytest.ini
 
-   # pytest.ini
    [pytest]
    markers =
        unit: mark test(s) as unit
@@ -46,15 +46,15 @@ Define markers in ``pytest.ini``:
 To execute by default only unit tests, you can add to your ``pytest.ini``:
 
 .. code-block:: ini
+   :caption: pytest.ini
 
-   # pytest.ini
    [pytest]
    addopts = 
        -m "unit"
 
-.. prompt:: bash:
+.. code-block:: bash
 
-    pytest -vv
+    $ pytest -vv
 
     testing/test_markers.py::test_unit PASSED                                       [100%] 
 
@@ -99,13 +99,14 @@ Generate coverage report with every run
 ---------------------------------------
 
 .. code-block:: ini
+   :caption: Add pytest coverage options to pytest.ini 
 
-    # pytest.ini
-    [pytest]
-    addopts = 
-        --cov
-        --cov-report=html
-        --cov-report=term
+   # pytest.ini
+   [pytest]
+   addopts = 
+       --cov
+       --cov-report=html
+       --cov-report=term
 
 ``doctest``
 -----------

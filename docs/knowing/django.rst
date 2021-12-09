@@ -1,0 +1,8 @@
+Django
+======
+
+.. toctree::
+   :glob:
+
+   django/*
+

@@ -20,8 +20,17 @@ pygems.core.plugin
 .. automodule:: pygems.core.plugin
    :members:
 
+pygems.core.shortcuts
+---------------------
+
+.. automodule:: pygems.core.shortcuts
+   :members:
+
+
 pygems.core.timer
 -----------------
 
 .. automodule:: pygems.core.timer
    :members:
+
+
