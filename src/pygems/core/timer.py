@@ -227,6 +227,7 @@ class Timer:
         """
         self.stopped_at = self.time
         if hasattr(self, 'stop_func') and self.stop_func:
+            # deepcode ignore WrongNumberOfArguments: False negative result
             self.stop_func(self, *args)
 
 
