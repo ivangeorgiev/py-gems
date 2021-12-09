@@ -5,3 +5,6 @@ sphinx-prompt
 sphinx-rtd-theme
 twine
 -e .
+# Snyk Suggestions
+pygments>=2.7.4
+sphinx>=3.0.4
