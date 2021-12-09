@@ -15,7 +15,7 @@ Now if we want to access the city of the user, we acually need to access the
 ``address`` of the user and than the ``city`` of the address. Expressed in dot notation we 
 want to access ``address.city`` :
 
-.. code-block:: python
+.. code-block:: pycon
 
     >>> address = Address('Sofia')
     >>> user = User('john', address)
@@ -24,14 +24,13 @@ want to access ``address.city`` :
 
 Trying to access missing attribute results in ``AttributeError`` error:
 
-.. code-block:: python
-
+.. code-block:: pycon
 
     >>> address = Address('Sofia')
     >>> user = User('john', address)
     >>> print(get_attr(user, 'floor'))
-    AttributeError: 'Address' object has no attribute 'floor'
-    ...
     Traceback (most recent call last):
+    ...
+    AttributeError: 'Address' object has no attribute 'floor'
 
 This function has been included in ``pygems.core.shortcuts`` module.
