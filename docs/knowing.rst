@@ -4,7 +4,6 @@ Knowing
 .. toctree::
    :caption: Knowing
    :maxdepth: 1
+   :glob:
 
-   knowing/functions-and-methods
-   knowing/packaging
-   knowing/django
+   knowing/*

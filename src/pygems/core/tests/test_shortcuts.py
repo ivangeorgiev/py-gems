@@ -40,4 +40,21 @@ class TestGetIgnoreErrors:
             handler(KeyError())
 
 
+class TestGetattrNested:
+
+    def test_returns_nested_attribute(self):
+        user = mock.MagicMock()
+        user.address.city = 'Sofia'
+        actual = shortcuts.getattr_nested(user, 'address.city')
+        assert 'Sofia' == actual
+
+    def test_returns_default_value_when_specified_and_attribute_is_missing(self):
+        user = 'john'
+        actual = shortcuts.getattr_nested(user, 'address.city', 'Mexico')
+        assert 'Mexico' == actual
+
+    def test_raises_attribute_error_when_attribute_is_missing(self):
+        user = 'john'
+        with pytest.raises(AttributeError):
+            shortcuts.getattr_nested(user, 'address.city')
 
