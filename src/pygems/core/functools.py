@@ -2,8 +2,6 @@
 from functools import wraps, partial
 from typing import Callable
 
-Class = type[object]
-
 class MultiMethod(object):
     """Manage call signature map to actual functions.
     
@@ -38,7 +36,7 @@ class MultiMethodRegistry(object):
     _registry = {}   # class attribute
 
     @classmethod
-    def register(cls, types:list[Class], function: Callable) -> MultiMethod:
+    def register(cls, types:list, function: Callable) -> MultiMethod:
         """Register a function as mutimethod."""
         name = function.__name__
         registry = cls._registry
