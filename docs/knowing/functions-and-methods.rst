@@ -253,9 +253,25 @@ Further Reading
 Overloaded functions (multimethods)
 -----------------------------------
 
-Based on Guido van Rossum's `Five-minute Multimethods in Python <https://www.artima.com/weblogs/viewpost.jsp?thread=101605>`_
+According to Guido van Rossum, a function that has multiple versions, distinguished by the type of 
+the arguments (`Five-minute Multimethods in Python <https://www.artima.com/weblogs/viewpost.jsp?thread=101605>`_).
 
-See: :func:`pygems.core.functools.multimethod` function
+Multimethod implementation is implemented and available through the 
+:func:`pygems.core.functools.multimethod` decorator.
+
+Each time a function is decorated with the :func:`pygems.core.functools.multimethod` decorator, 
+the decorator registers a new version of the function for the given sequence of argument types.
+
+.. code-block:: python
+
+    @multimethod(int, int)
+    def distance(a, b):
+        return b - a
+
+    @multimethod(str, str)
+    def distance(a, b):
+        return levenstein(a, b)
+
 
 
 

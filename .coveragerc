@@ -1,0 +1,7 @@
+[run]
+omit =
+    # Omit test files
+    */tests/*
+    # Omit demo files
+    */pygems/demo/*
+

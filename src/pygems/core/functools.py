@@ -3,7 +3,7 @@ from functools import wraps, partial
 from typing import Callable
 
 class MultiMethod(object):
-    """Manage call signature map to actual functions.
+    """Manage function versions distinguieshed by argument types
     
     Based on Guido van Rossum's `Five-minute Multimethods in Python <https://www.artima.com/weblogs/viewpost.jsp?thread=101605>`_
     """
@@ -31,7 +31,7 @@ class MultiMethod(object):
 
 
 class MultiMethodRegistry(object):
-    """Registry to map function names to MuultiMethod instnaces"""
+    """Map function to multimethod"""
 
     _registry = {}   # class attribute
 
