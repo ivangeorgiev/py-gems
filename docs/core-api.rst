@@ -7,6 +7,13 @@ Py-Gems Core API
    from pygems.core.timer import *
    from pygems.core.plugin import *
    from pygems.core.namespace import *
+   from pygems.core import functools
+
+pygems.core.functools
+---------------------
+
+.. automodule:: pygems.core.functools
+   :members:
 
 pygems.core.namespace
 ---------------------

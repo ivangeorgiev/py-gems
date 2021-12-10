@@ -29,10 +29,16 @@ class Timer:
 
     .. testsetup:: *
 
-       from pygems.core.timer import *
-       from functools import partial
-       time_func = partial([1, 9.1234, 30.789].pop, 0)
-       stop_func = lambda t, *args: print(f'{t.name}:', *args, f'{round(t.elapsed,6)}s')
+        from pygems.core.timer import *
+        from functools import partial
+        time_func = partial([1, 9.1234, 30.789].pop, 0)
+        stop_func = lambda t, *args: print(f'{t.name}:', *args, f'{round(t.elapsed,6)}s')
+
+
+    >>> from pygems.core.timer import *
+    >>> from functools import partial
+    >>> time_func = partial([1, 9.1234, 30.789].pop, 0)
+    >>> stop_func = lambda t, *args: print(f'{t.name}:', *args, f'{round(t.elapsed,6)}s')
 
     .. doctest::
 

@@ -249,3 +249,13 @@ Further Reading
 - :pep:`318` -- Decorators for Functions and Methods
 - `Decorators <https://book.pythontips.com/en/latest/decorators.html#>`_  at PythonTips
 
+
+Overloaded functions (multimethods)
+-----------------------------------
+
+Based on Guido van Rossum's `Five-minute Multimethods in Python <https://www.artima.com/weblogs/viewpost.jsp?thread=101605>`_
+
+See: :func:`pygems.core.functools.multimethod` function
+
+
+
