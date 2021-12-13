@@ -84,3 +84,44 @@ class TestStringMessageCallback:
         expected = 'MyTimer: arg1+arg2 or arg1, arg2'
         cb('MyTimer', 'arg1', 'arg2')
         f.assert_called_with(expected)
+
+
+class TestTimerContextManager:
+
+    def test_timer_is_stopped_successfull_block(self, time_func):
+        with timer.Timer(time_func=time_func) as t:
+            # Dummy block
+            pass
+        assert t.stopped_at == 5
+
+    def test_timer_is_stopped_exception_block(self, time_func):
+        class DummyException(Exception):
+            pass
+
+        try:
+            with timer.Timer(time_func=time_func) as t:
+                raise DummyException('Some error')
+        except DummyException:
+            pass
+        assert t.stopped_at == 5
+
+
+class TestTimerDecorator:
+
+    def test_decorator(self, time_func):
+
+        def fake_stop_func(m, t, *args, **kwargs):
+            m.timer = t
+            m.args = args
+
+        m = mock.Mock()
+        stop_func = partial(fake_stop_func, m)
+
+        @timer.Timer(time_func=time_func, stop_func=stop_func)
+        def some_func():
+            # This is a dummy functon which we will measure
+            pass
+        
+        some_func()
+        assert isinstance(m.timer, timer.Timer)
+        assert m.timer.stopped_at == 9.5   # time_func is called 3 times by constructor, __call__ and stop()

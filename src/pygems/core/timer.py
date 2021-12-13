@@ -1,3 +1,4 @@
+import functools
 import timeit
 from typing import Callable
 
@@ -73,6 +74,12 @@ class Timer:
     _time_func: Callable
     _stop_func: Callable
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.stop()
+
     def __init__(self, name=None, time_func:TimeFunc=None, stop_func=None):
         """Creates, initializes and starts Timer instance.
 
@@ -123,6 +130,17 @@ class Timer:
             assert callable(stop_func), 'Expecting stop_func argument to be callable'
         self._stop_func = stop_func
         self.start()
+
+    def __call__(self, func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            self.start()
+            try:
+                result = func(*args, **kwargs)
+                return result
+            finally:
+                self.stop()
+        return wrapper
 
     @property
     def time(self):
